@@ -1,0 +1,3 @@
+black>=21.5b1
+domdf-python-tools>=2.9.1
+formate>=0.4.4

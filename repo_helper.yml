@@ -1,0 +1,53 @@
+# Configuration for 'repo_helper' (https://github.com/domdfcoding/repo_helper)
+---
+modname: 'formate-black'
+copyright_years: '2021'
+author: 'Dominic Davis-Foster'
+email: 'dominic@davis-foster.co.uk'
+username: 'repo-helper'
+assignee: 'domdfcoding'
+version: '0.0.0'
+license: 'MIT'
+short_desc: 'Use black with formate.'
+
+enable_conda: false
+enable_docs: false
+use_whey: true
+sphinx_html_theme: furo
+preserve_custom_theme: true
+min_coverage: 97
+
+python_versions:
+ - '3.6'
+ - '3.7'
+ - '3.8'
+ - '3.9'
+ - 3.10-dev
+ - pypy36
+ - pypy37
+
+keywords:
+ - formatting
+ - linting
+ - black
+ - formate
+
+classifiers:
+ - "Development Status :: 4 - Beta"
+ - "Intended Audience :: Developers"
+ - 'Environment :: Console'
+
+entry_points:
+  formate_hooks:
+   - "black=formate_black:black_hook"
+
+mypy_deps:
+ - types-attrs>=0.1.0
+
+exclude_files:
+ - contributing
+
+mypy_plugins:
+ - attr_utils.mypy_plugin
+
+pre_commit_exclude: "^tests/data/*$"
