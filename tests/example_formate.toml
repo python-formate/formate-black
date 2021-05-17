@@ -1,0 +1,8 @@
+[hooks]
+reformat-generics = 40
+collections-import-rewrite = 20
+noqa-reformat = 60
+
+[hooks.black]
+priority = 30
+
