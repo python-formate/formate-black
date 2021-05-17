@@ -1,6 +1,6 @@
 [build-system]
-requires = [ "whey",]
-build-backend = "whey"
+requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "formate-black"
@@ -26,17 +26,6 @@ Homepage = "https://github.com/repo-helper/formate-black"
 [tool.mkrecipe]
 conda-channels = [ "repo-helper",]
 extras = "all"
-
-[tool.whey]
-base-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "Intended Audience :: Developers",
-    "Typing :: Typed",
-]
-python-versions = [ "3.6", "3.7", "3.8", "3.9",]
-python-implementations = [ "CPython",]
-platforms = [ "Windows", "macOS", "Linux",]
 license-key = "MIT"
 package = "formate_black"
 
