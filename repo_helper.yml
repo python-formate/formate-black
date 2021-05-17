@@ -50,4 +50,4 @@ exclude_files:
 mypy_plugins:
  - attr_utils.mypy_plugin
 
-pre_commit_exclude: "^tests/data/*$"
+pre_commit_exclude: "^tests/data/.*$"
