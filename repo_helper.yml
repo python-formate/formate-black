@@ -50,3 +50,6 @@ mypy_plugins:
  - attr_utils.mypy_plugin
 
 pre_commit_exclude: "^tests/data/.*$"
+
+tox_unmanaged:
+ - flake8

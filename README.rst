@@ -116,7 +116,7 @@ To install with ``pip``:
 Hooks
 --------
 
-``formate-black`` provides a single hook for formate_, which enables the black_ code formatter to be used.
+``formate-black`` provides a single hook for formate_, which allows the black_ code formatter to be used.
 
 
 ``black``

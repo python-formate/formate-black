@@ -41,11 +41,15 @@ class BlackBaseTestCase(unittest.TestCase):
 				list(bdv.visit(exp_node))
 			except Exception as ve:
 				err(str(ve))
-		self.assertMultiLineEqual(expected, actual)
+
+		self.assertMultiLineEqual(expected, actual)  # noqa: PT009
 
 
 def read_data(name: str, data: bool = True) -> Tuple[str, str]:
-	"read_data('test_name') -> 'input', 'output'"
+	"""
+	read_data('test_name') -> 'input', 'output'
+	"""
+
 	if not name.endswith((".py", ".pyi", ".out", ".diff")):
 		name += ".py"
 	base_dir = THIS_DIR / "data" if data else PROJECT_ROOT
