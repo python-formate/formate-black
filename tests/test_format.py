@@ -3,7 +3,7 @@ import os
 
 # 3rd party
 import black
-from parameterized import parameterized
+from parameterized import parameterized  # type: ignore
 
 # this package
 from formate_black import black_hook
