@@ -6,10 +6,9 @@ import sys
 import black
 import pytest
 from black import InvalidInput
-
-# this package
 from coincidence import AdvancedFileRegressionFixture
 
+# this package
 from formate_black import black_hook
 from tests.util import DEFAULT_MODE, THIS_DIR, read_data
 
@@ -153,10 +152,26 @@ def test_tab_comment_indentation_use_tabs() -> None:
 def test_tab_comment_indentation_use_tabs_global() -> None:
 	contents_tab = "if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n"
 	contents_spc = "if 1:\n    if 2:\n        pass\n    # comment\n    pass\n"
-	assert contents_tab == black_hook(contents_spc, formate_filename="code.py", formate_global_config={"indent": "\t"})
-	assert contents_tab == black_hook(contents_tab, formate_filename="code.py", formate_global_config={"indent": "\t"})
+	assert contents_tab == black_hook(
+			contents_spc,
+			formate_filename="code.py",
+			formate_global_config={"indent": '\t'},
+			)
+	assert contents_tab == black_hook(
+			contents_tab,
+			formate_filename="code.py",
+			formate_global_config={"indent": '\t'},
+			)
 
 	contents_tab = "if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n"
 	contents_spc = "if 1:\n    if 2:\n        pass\n        # comment\n    pass\n"
-	assert contents_tab == black_hook(contents_spc, formate_filename="code.py", formate_global_config={"indent": "\t"})
-	assert contents_tab == black_hook(contents_tab, formate_filename="code.py", formate_global_config={"indent": "\t"})
+	assert contents_tab == black_hook(
+			contents_spc,
+			formate_filename="code.py",
+			formate_global_config={"indent": '\t'},
+			)
+	assert contents_tab == black_hook(
+			contents_tab,
+			formate_filename="code.py",
+			formate_global_config={"indent": '\t'},
+			)
