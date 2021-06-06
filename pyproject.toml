@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "formate-black"
-version = "0.0.0"
+version = "0.1.0"
 description = "Use black with formate."
 readme = "README.rst"
 keywords = [ "black", "formate", "formatting", "linting",]

@@ -81,7 +81,7 @@ formate-black
 .. |language| image:: https://img.shields.io/github/languages/top/repo-helper/formate-black
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/repo-helper/formate-black/v0.0.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/repo-helper/formate-black/v0.1.0
 	:target: https://github.com/repo-helper/formate-black/pulse
 	:alt: GitHub commits since tagged version
 
