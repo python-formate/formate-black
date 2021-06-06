@@ -12,9 +12,6 @@ short_desc: 'Use black with formate.'
 
 enable_conda: false
 enable_docs: false
-use_whey: true
-sphinx_html_theme: furo
-preserve_custom_theme: true
 min_coverage: 97
 
 python_versions:
