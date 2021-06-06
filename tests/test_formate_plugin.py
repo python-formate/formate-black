@@ -5,7 +5,7 @@ import os
 import black
 import dom_toml
 from consolekit.testing import CliRunner, Result
-from domdf_python_tools.paths import in_directory, PathPlus, TemporaryPathPlus
+from domdf_python_tools.paths import PathPlus, TemporaryPathPlus, in_directory
 from formate.__main__ import main
 from parameterized import parameterized  # type: ignore
 
@@ -139,5 +139,3 @@ class TestSimpleFormat(BlackBaseTestCase):
 		if source != actual:
 			black.assert_equivalent(source, actual)
 			black.assert_stable(source, actual, mode)
-
-
