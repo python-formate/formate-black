@@ -21,8 +21,8 @@ setup(
 		description="Use black with formate.",
 		extras_require=extras_require,
 		install_requires=install_requires,
+		name="formate-black",
 		py_modules=[],
-		version=__version__,
 		)
 
 shutil.rmtree("formate_black.egg-info", ignore_errors=True)
