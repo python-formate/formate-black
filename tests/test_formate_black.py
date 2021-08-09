@@ -40,7 +40,7 @@ def test_python37() -> None:
 	assert expected == actual
 
 	major, minor = sys.version_info[:2]
-	if major < 3 or (major <= 3 and minor < 7):
+	if major > 3 or (major >= 3 and minor > 7):
 		black.assert_equivalent(source, actual)
 
 	black.assert_stable(source, actual, DEFAULT_MODE)
