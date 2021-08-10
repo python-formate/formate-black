@@ -77,8 +77,9 @@ def test_line_length(advanced_file_regression: AdvancedFileRegressionFixture, le
 	actual = black_hook(source, formate_filename=source_path, line_length=length)
 	advanced_file_regression.check(actual)
 
-	# TODO:
-	# black.assert_stable(source, actual, DEFAULT_MODE)
+
+# TODO:
+# black.assert_stable(source, actual, DEFAULT_MODE)
 
 
 @pytest.mark.parametrize("length", [80, 115, 300])
@@ -89,8 +90,9 @@ def test_line_length_global(advanced_file_regression: AdvancedFileRegressionFixt
 	actual = black_hook(source, formate_filename=source_path, formate_global_config={"line_length": length})
 	advanced_file_regression.check(actual)
 
-	# TODO:
-	# black.assert_stable(source, actual, DEFAULT_MODE)
+
+# TODO:
+# black.assert_stable(source, actual, DEFAULT_MODE)
 
 
 def test_python39() -> None:
@@ -106,46 +108,43 @@ def test_python39() -> None:
 	black.assert_stable(source, actual, DEFAULT_MODE)
 
 
-def test_tab_comment_indentation() -> None:
-	contents_tab = "if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n"
-	contents_spc = "if 1:\n    if 2:\n        pass\n    # comment\n    pass\n"
-	assert contents_spc == black_hook(contents_spc, formate_filename="code.py")
-	assert contents_spc == black_hook(contents_tab, formate_filename="code.py")
-	assert contents_spc == black_hook(contents_spc, formate_filename="code.py", use_tabs=False)
-	assert contents_spc == black_hook(contents_tab, formate_filename="code.py", use_tabs=False)
-
-	contents_tab = "if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n"
-	contents_spc = "if 1:\n    if 2:\n        pass\n        # comment\n    pass\n"
-	assert contents_spc == black_hook(contents_spc, formate_filename="code.py")
-	assert contents_spc == black_hook(contents_tab, formate_filename="code.py")
-	assert contents_spc == black_hook(contents_spc, formate_filename="code.py", use_tabs=False)
-	assert contents_spc == black_hook(contents_tab, formate_filename="code.py", use_tabs=False)
-
-	# mixed tabs and spaces (valid Python 2 code)
-	contents_tab = "if 1:\n        if 2:\n\t\tpass\n\t# comment\n        pass\n"
-	contents_spc = "if 1:\n    if 2:\n        pass\n    # comment\n    pass\n"
-	assert contents_spc == black_hook(contents_spc, formate_filename="code.py")
-	assert contents_spc == black_hook(contents_tab, formate_filename="code.py")
-	assert contents_spc == black_hook(contents_spc, formate_filename="code.py", use_tabs=False)
-	assert contents_spc == black_hook(contents_tab, formate_filename="code.py", use_tabs=False)
-
-	contents_tab = "if 1:\n        if 2:\n\t\tpass\n\t\t# comment\n        pass\n"
-	contents_spc = "if 1:\n    if 2:\n        pass\n        # comment\n    pass\n"
+@pytest.mark.parametrize("contents_tab, contents_spc", [
+		(
+				"if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n",
+				"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n"),
+		(
+				"if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n",
+				"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n"),
+		(  # mixed tabs and spaces (valid Python 2 code)
+				"if 1:\n        if 2:\n\t\tpass\n\t# comment\n        pass\n",
+				"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
+				),
+		(
+				"if 1:\n        if 2:\n\t\tpass\n\t\t# comment\n        pass\n",
+				"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
+				),
+		])
+def test_tab_comment_indentation(contents_tab: str, contents_spc: str) -> None:
 	assert contents_spc == black_hook(contents_spc, formate_filename="code.py")
 	assert contents_spc == black_hook(contents_tab, formate_filename="code.py")
 	assert contents_spc == black_hook(contents_spc, formate_filename="code.py", use_tabs=False)
 	assert contents_spc == black_hook(contents_tab, formate_filename="code.py", use_tabs=False)
 
 
-def test_tab_comment_indentation_use_tabs() -> None:
-	contents_tab = "if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n"
-	contents_spc = "if 1:\n    if 2:\n        pass\n    # comment\n    pass\n"
+@pytest.mark.parametrize("contents_tab, contents_spc", [
+		(
+				"if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n",
+				"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
+				),
+		(
+				"if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n",
+				"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
+				)
+
+		])
+def test_tab_comment_indentation_use_tabs(contents_tab: str, contents_spc: str) -> None:
 	assert contents_tab == black_hook(contents_spc, formate_filename="code.py", use_tabs=True)
 	assert contents_tab == black_hook(contents_tab, formate_filename="code.py", use_tabs=True)
-
-	contents_tab = "if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n"
-	contents_spc = "if 1:\n    if 2:\n        pass\n        # comment\n    pass\n"
-	assert contents_tab == black_hook(contents_spc, formate_filename="code.py", use_tabs=True)
 	assert contents_tab == black_hook(contents_tab, formate_filename="code.py", use_tabs=True)
 
 
