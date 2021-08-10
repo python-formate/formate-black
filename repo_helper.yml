@@ -42,6 +42,7 @@ mypy_deps:
 exclude_files:
  - contributing
  - setup_cfg
+ - pylintrc
 
 mypy_plugins:
  - attr_utils.mypy_plugin
