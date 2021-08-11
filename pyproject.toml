@@ -19,9 +19,9 @@ email = "dominic@davis-foster.co.uk"
 file = "LICENSE"
 
 [project.urls]
-Homepage = "https://github.com/repo-helper/formate-black"
-"Issue Tracker" = "https://github.com/repo-helper/formate-black/issues"
-"Source Code" = "https://github.com/repo-helper/formate-black"
+Homepage = "https://github.com/python-formate/formate-black"
+"Issue Tracker" = "https://github.com/python-formate/formate-black/issues"
+"Source Code" = "https://github.com/python-formate/formate-black"
 
 [tool.whey]
 base-classifiers = [
@@ -35,6 +35,14 @@ python-implementations = [ "CPython",]
 platforms = [ "Windows", "macOS", "Linux",]
 license-key = "MIT"
 package = "formate_black"
+
+[tool.mypy]
+python_version = "3.6"
+namespace_packages = true
+check_untyped_defs = true
+warn_unused_ignores = true
+no_implicit_optional = true
+plugins = [ "attr_utils.mypy_plugin",]
 
 [project.entry-points.formate_hooks]
 black = "formate_black:black_hook"
