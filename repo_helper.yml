@@ -13,6 +13,7 @@ short_desc: 'Use black with formate.'
 enable_conda: false
 enable_docs: false
 min_coverage: 97
+mypy_version: "0.812"
 
 python_versions:
  - '3.6'
