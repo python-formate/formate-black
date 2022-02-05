@@ -13,7 +13,7 @@ short_desc: 'Use black with formate.'
 enable_conda: false
 enable_docs: false
 min_coverage: 97
-mypy_version: "0.812"
+use_whey: true
 
 python_versions:
  - '3.6'
@@ -43,7 +43,6 @@ mypy_deps:
 
 exclude_files:
  - contributing
- - setup_cfg
  - pylintrc
 
 mypy_plugins:

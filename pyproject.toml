@@ -1,6 +1,6 @@
 [build-system]
-requires = [ "setuptools>=40.6.0", "wheel>=0.34.2",]
-build-backend = "setuptools.build_meta"
+requires = [ "whey",]
+build-backend = "whey"
 
 [project]
 name = "formate-black"
@@ -44,6 +44,7 @@ warn_unused_ignores = true
 no_implicit_optional = true
 plugins = [ "attr_utils.mypy_plugin",]
 show_error_codes = true
+exclude = "tests/data"
 
 [tool.snippet-fmt]
 directives = [ "code-block",]
