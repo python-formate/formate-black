@@ -6,7 +6,7 @@ author: 'Dominic Davis-Foster'
 email: 'dominic@davis-foster.co.uk'
 username: 'python-formate'
 assignee: 'domdfcoding'
-version: '0.1.0'
+version: '0.2.0'
 license: 'MIT'
 short_desc: 'Use black with formate.'
 
@@ -39,7 +39,7 @@ entry_points:
    - "black=formate_black:black_hook"
 
 mypy_deps:
- - types-attrs>=0.1.0
+ - types-attrs>=0.2.0
 
 exclude_files:
  - contributing

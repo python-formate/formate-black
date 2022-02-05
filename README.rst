@@ -81,7 +81,7 @@ formate-black
 .. |language| image:: https://img.shields.io/github/languages/top/python-formate/formate-black
 	:alt: GitHub top language
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/python-formate/formate-black/v0.1.0
+.. |commits-since| image:: https://img.shields.io/github/commits-since/python-formate/formate-black/v0.2.0
 	:target: https://github.com/python-formate/formate-black/pulse
 	:alt: GitHub commits since tagged version
 
