@@ -102,7 +102,7 @@ class TestSimpleFormat(BlackBaseTestCase):
 	def test_experimental_format(self, filename: str) -> None:
 		self.check_file(
 				filename,
-				black.Mode(experimental_string_processing=True),  # type: ignore[call-arg]
+				black.Mode(experimental_string_processing=True),
 				kwargs=dict(experimental_string_processing=True)
 				)
 
