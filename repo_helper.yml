@@ -41,7 +41,7 @@ entry_points:
    - "black=formate_black:black_hook"
 
 mypy_deps:
- - types-attrs>=0.2.0.post1
+ - types-attrs>=0.2.0
 
 exclude_files:
  - contributing
