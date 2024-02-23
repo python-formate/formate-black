@@ -45,4 +45,4 @@ known_third_party = [
     "pytest_randomly",
     "pytest_timeout",
 ]
-known_first_party = "formate_black"
+known_first_party = [ "formate_black",]
