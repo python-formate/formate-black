@@ -89,11 +89,11 @@ formate-black
 	:target: https://github.com/python-formate/formate-black/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2025
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2026
 	:alt: Maintenance
 
 .. |pypi-downloads| image:: https://img.shields.io/pypi/dm/formate-black
-	:target: https://pypi.org/project/formate-black/
+	:target: https://pypistats.org/packages/formate-black
 	:alt: PyPI - Downloads
 
 .. end shields
