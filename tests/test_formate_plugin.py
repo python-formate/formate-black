@@ -116,23 +116,22 @@ class TestSimpleFormat(BlackBaseTestCase):
 	def check_file(self, filename: str, mode: black.Mode, kwargs: dict, *, data: bool = True) -> None:
 		source, expected = read_data(filename, data=data)
 
-		result: Result
-
 		with TemporaryPathPlus() as tmp_pathplus:
-			(tmp_pathplus / filename).write_text(source)
+			python_file = (tmp_pathplus / filename).with_suffix(".py")
+			python_file.write_text(source)
 			toml_data = dom_toml.load(PathPlus(__file__).parent / "example_formate.toml")
 			toml_data["hooks"]["black"]["kwargs"] = kwargs
 			dom_toml.dump(toml_data, tmp_pathplus / "formate.toml")
 
 			with in_directory(tmp_pathplus):
 				runner = CliRunner(mix_stderr=False)
-				result = runner.invoke(
+				result: Result = runner.invoke(
 						main,
-						args=[filename, "--no-colour", "--diff", "--verbose", "-v"],
+						args=[python_file.name, "--no-colour", "--diff", "--verbose", "-v"],
 						)
 
 			# TODO: check stdout
-			actual = (tmp_pathplus / filename).read_text()
+			actual = python_file.read_text()
 
 		self.assertFormatEqual(expected, actual)
 		if source != actual:
