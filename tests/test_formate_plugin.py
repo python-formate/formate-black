@@ -105,7 +105,7 @@ class TestSimpleFormat(BlackBaseTestCase):
 		self.check_file(
 				filename,
 				black.Mode(experimental_string_processing=True),
-				kwargs=dict(experimental_string_processing=True)
+				kwargs=dict(experimental_string_processing=True),
 				)
 
 	@parameterized.expand(SOURCES)

@@ -108,22 +108,26 @@ def test_python39() -> None:
 	black.assert_stable(source, actual, DEFAULT_MODE)
 
 
-@pytest.mark.parametrize("contents_tab, contents_spc", [
-		(
-				"if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n",
-				"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n"),
-		(
-				"if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n",
-				"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n"),
-		(  # mixed tabs and spaces (valid Python 2 code)
-				"if 1:\n        if 2:\n\t\tpass\n\t# comment\n        pass\n",
-				"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
-				),
-		(
-				"if 1:\n        if 2:\n\t\tpass\n\t\t# comment\n        pass\n",
-				"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
-				),
-		])
+@pytest.mark.parametrize(
+		"contents_tab, contents_spc", [
+				(
+						"if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n",
+						"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
+						),
+				(
+						"if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n",
+						"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
+						),
+				(  # mixed tabs and spaces (valid Python 2 code)
+						"if 1:\n        if 2:\n\t\tpass\n\t# comment\n        pass\n",
+						"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
+						),
+				(
+						"if 1:\n        if 2:\n\t\tpass\n\t\t# comment\n        pass\n",
+						"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
+						),
+				],
+		)
 def test_tab_comment_indentation(contents_tab: str, contents_spc: str) -> None:
 	assert contents_spc == black_hook(contents_spc, formate_filename="code.py")
 	assert contents_spc == black_hook(contents_tab, formate_filename="code.py")
@@ -131,17 +135,19 @@ def test_tab_comment_indentation(contents_tab: str, contents_spc: str) -> None:
 	assert contents_spc == black_hook(contents_tab, formate_filename="code.py", use_tabs=False)
 
 
-@pytest.mark.parametrize("contents_tab, contents_spc", [
-		(
-				"if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n",
-				"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
-				),
-		(
-				"if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n",
-				"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
-				)
-
-		])
+@pytest.mark.parametrize(
+		"contents_tab, contents_spc",
+		[
+				(
+						"if 1:\n\tif 2:\n\t\tpass\n\t# comment\n\tpass\n",
+						"if 1:\n    if 2:\n        pass\n    # comment\n    pass\n",
+						),
+				(
+						"if 1:\n\tif 2:\n\t\tpass\n\t\t# comment\n\tpass\n",
+						"if 1:\n    if 2:\n        pass\n        # comment\n    pass\n",
+						),
+				],
+		)
 def test_tab_comment_indentation_use_tabs(contents_tab: str, contents_spc: str) -> None:
 	assert contents_tab == black_hook(contents_spc, formate_filename="code.py", use_tabs=True)
 	assert contents_tab == black_hook(contents_tab, formate_filename="code.py", use_tabs=True)
